@@ -1,0 +1,14 @@
+project:
+  type: website
+
+resources:
+  - html-site/**
+
+website:
+  title: "Bhawna Shekhawat"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: html-site/index.html
+        text: Portfolio
