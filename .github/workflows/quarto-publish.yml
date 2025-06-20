@@ -1,26 +1,18 @@
-name: Publish Quarto Website
+name: Deploy Static HTML Site
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: "1.4.550"
-
-      - name: Render Quarto Project
-        run: quarto render
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy html-site folder to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages 
+          publish_dir: ./html-site
